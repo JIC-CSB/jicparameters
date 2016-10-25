@@ -72,3 +72,12 @@ Read from file::
 
     >>> p2 = Parameters.from_file("params.yml")
     >>> assert params == p2
+
+
+History
+-------
+
+0.1.0
+^^^^^
+
+- Initial upload to PyPi
