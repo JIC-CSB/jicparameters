@@ -16,8 +16,19 @@ class Parameters(dict):
         p.update(d)
         return p
 
+    @classmethod
+    def from_file(cls, fpath):
+        """Read parameters from file."""
+        with open(fpath, "r") as fh:
+            return cls.from_yaml(fh.read())
+
     def to_yaml(self):
         """Return yaml string representation."""
         return yaml.dump(dict(self),
                          explicit_start=True,
                          default_flow_style=False)
+
+    def to_file(self, fpath):
+        """Write parameters to file."""
+        with open(fpath, "w") as fh:
+            fh.write(self.to_yaml())

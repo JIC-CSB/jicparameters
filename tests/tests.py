@@ -10,10 +10,6 @@ TMP_DIR = os.path.join(HERE, 'tmp')
 
 class UnitTests(unittest.TestCase):
 
-    def test_can_import_package(self):
-        # Raises import error if the package cannot be imported.
-        import jicparameters
-
     def test_package_has_version_string(self):
         import jicparameters
         self.assertTrue(isinstance(jicparameters.__version__, str))
@@ -30,6 +26,7 @@ class UnitTests(unittest.TestCase):
         p["pi"] = 3.14
         self.assertEqual(p.to_yaml(), "---\npi: 3.14\n")
 
+
 class FunctionalTests(unittest.TestCase):
 
     def setUp(self):
@@ -38,6 +35,23 @@ class FunctionalTests(unittest.TestCase):
 
     def tearDown(self):
         shutil.rmtree(TMP_DIR)
+
+    def test_to_file(self):
+        from jicparameters import Parameters
+        p = Parameters()
+        p["pi"] = 3.14
+        out_fpath = os.path.join(TMP_DIR, "p1.yml")
+        p.to_file(out_fpath)
+        self.assertEqual(p.to_yaml(), open(out_fpath).read())
+
+    def test_from_file(self):
+        from jicparameters import Parameters
+        fpath = os.path.join(TMP_DIR, "p2.yml")
+        with open(fpath, "w") as fh:
+            fh.write("---\npi: 3.14\n")
+        p = Parameters.from_file(fpath)
+        self.assertTrue(isinstance(p, Parameters))
+        self.assertEqual(p["pi"], 3.14)
 
 
 if __name__ == "__main__":
