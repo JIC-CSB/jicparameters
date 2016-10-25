@@ -13,6 +13,8 @@ class Parameters(dict):
         """Return Parameter instance from yaml string."""
         p = cls()
         d = yaml.load(string)
+        if not isinstance(d, dict):
+            raise(TypeError("YAML is not a dictionary at the top level"))
         p.update(d)
         return p
 

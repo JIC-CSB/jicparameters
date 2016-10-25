@@ -26,6 +26,13 @@ class UnitTests(unittest.TestCase):
         p["pi"] = 3.14
         self.assertEqual(p.to_yaml(), "---\npi: 3.14\n")
 
+    def test_raise_typeerror_if_params_not_dict(self):
+        from jicparameters import Parameters
+        with self.assertRaises(TypeError) as cm:
+            Parameters.from_yaml("---\n- 3.14\n")
+        self.assertEqual(str(cm.exception),
+                         "YAML is not a dictionary at the top level")
+
 
 class FunctionalTests(unittest.TestCase):
 
