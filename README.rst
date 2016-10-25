@@ -50,6 +50,7 @@ Create some parameters::
     {'pi': 3.14, 'radius': 10}
 
 Add another parameter::
+
     >>> params["fudge_factor"] = 42
     >>> params
     {'fudge_factor': 42, 'pi': 3.14, 'radius': 10}
