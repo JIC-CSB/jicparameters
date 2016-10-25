@@ -1,4 +1,4 @@
-"""jicparameters package."""
+"""Module to make it easier to work with lots of parameters."""
 
 import yaml
 
