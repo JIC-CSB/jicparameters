@@ -1,6 +1,10 @@
 The ``jicparameters`` Python package
 =======================================
 
+.. image:: https://badge.fury.io/py/jicparameters.svg
+   :target: http://badge.fury.io/py/jicparameters
+   :alt: PyPi package
+
 .. image:: https://travis-ci.org/JIC-CSB/jicparameters.svg?branch=master
    :target: https://travis-ci.org/JIC-CSB/jicparameters
    :alt: Travis CI build status (Linux)
