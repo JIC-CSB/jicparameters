@@ -25,7 +25,7 @@ The ``jicparameters`` Python package
 
 Python package making it easier to work with lots of parameters.
 
-- Documentation: http://jicparameters.readthedocs.io/en/latest/
+- Documentation: http://jicparameters.readthedocs.io
 - GitHub: https://github.com/JIC-CSB/jicparameters
 - Free software: MIT License
 
